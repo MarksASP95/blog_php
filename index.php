@@ -1,17 +1,22 @@
 <?php 
-    require("db.php");
-    $select_posts_query = "SELECT * FROM post";
-    $result = $db->query($selectPostsQuery);
+    require("db.php"); //CONNECT TO DATABASE
+    $select_posts_query = "SELECT * FROM post ORDER BY post_id DESC";
+    $result = $db->query($select_posts_query);
     $posts_list = "";
     
     while($row = $result -> fetch_assoc()){
+        $tags = explode(",",$row['tags']);
+        $tag_list = "";
+        foreach($tags as $tag){
+            $tag_list .= "#" . $tag . " ";
+        }
         $posts_list .= "
         
         <div class=\"post\">
 
-            <h2 class=\"post-title\"></h2>
-            <p class=\"post-content\"></p>
-            <p class=\"post-date\"></p>
+            <a href=\"post.php?id=". $row['post_id'] . "&title=" . $row['post_title'] . "\" class=\"post-title\">" . $row['post_title'] . "</a>
+            <p class=\"post-tags\">Tags: " . $tag_list . "</p>
+            <p class=\"post-date\">" . $row['post_date'] . "</p>
     
         </div>
         
@@ -21,9 +26,6 @@
 
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +43,8 @@
     </header>
 
     <section id="posts">
+
+        <h2 id="new-posts-text">New Posts</h2>
 
         <?php echo $posts_list ?>
     
