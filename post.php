@@ -36,7 +36,7 @@ catch(Exception $e){
 <body>
 
     <header>
-        <h1><a href="index.php">Marco's Blog</a></h1>
+        <h1><a href="index.php">Marco Suárez</a></h1>
     </header>
 
     <section id="post">
@@ -47,13 +47,5 @@ catch(Exception $e){
     
     </section>
 
-    <aside>
-
-    </aside>
-
-
-
-
-    
 </body>
 </html>

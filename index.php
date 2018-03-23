@@ -39,19 +39,29 @@
 <body>
 
     <header>
-        <h1><a href="index.php">Marco's Blog</a></h1>
+        <h1><a href="index.php">Marco Suárez</a></h1>
     </header>
 
-    <section id="posts">
+    <section id="page-content">
 
-        <h2 id="new-posts-text">New Posts</h2>
+        <section  id="posts">
 
-        <?php echo $posts_list ?>
-    
+            <h2 class="page-subtitle">New Posts</h2>
+
+            <?php echo $posts_list ?>
+        
+        </section>
+
+        <aside>
+            <h2 class="page-subtitle">Search posts...</h2>
+            <form action="search_posts.php">
+                <input type="text" name="post_name" placeholder="Post name or tags...">
+                <input type="submit" value="Search">
+            </form>
+        </aside>
+        
     </section>
 
-    <aside>
-
-    </aside>
+    
 </body>
 </html>
