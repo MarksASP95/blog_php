@@ -7,6 +7,6 @@
     <title>Page not found</title>
 </head>
 <body>
-    
+    <h1>We couldn't find your page :(</h1>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php 
-    require("db.php"); //CONNECT TO DATABASE
+    require("db_user.php"); //CONNECT TO DATABASE
     $select_posts_query = "SELECT * FROM post ORDER BY post_id DESC";
     $result = $db->query($select_posts_query);
     $posts_list = "";
@@ -39,7 +39,7 @@
 <body>
 
     <header>
-        <h1>Marco's Blog</h1>
+        <h1><a href="index.php">Marco's Blog</a></h1>
     </header>
 
     <section id="posts">
@@ -53,10 +53,5 @@
     <aside>
 
     </aside>
-
-
-
-
-    
 </body>
 </html>

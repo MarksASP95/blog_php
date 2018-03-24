@@ -1,18 +1,22 @@
 <?php 
 
-require("db.php");
+require("db_user.php");
 
 $title = $_GET['title'];
 $post_query = "SELECT post_cont FROM post WHERE post_id = " .  $_GET['id'];
 $result = $db->query($post_query);
 
-if($row = $result->fetch_assoc()){
-    $content = $row['post_cont'];
+try{
+    if(!$row = $result->fetch_assoc()){
+        throw new Exception('No se ha encontrado el post');
+    }
+    else{
+        $content = nl2br($row['post_cont']);
+    }
 }
-else{
+catch(Exception $e){
     header('404.php');
 }
-
 
 
 ?>
@@ -29,7 +33,7 @@ else{
 <body>
 
     <header>
-        <h1>Marco's Blog</h1>
+        <h1><a href="index.php">Marco's Blog</a></h1>
     </header>
 
     <section id="post">
