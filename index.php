@@ -22,9 +22,6 @@
         
         "; //END APPEND POST VIEW
     } //END WHILE THROUGH RESULT
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +58,6 @@
         </aside>
         
     </section>
-
     
 </body>
 </html>
