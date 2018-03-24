@@ -3,8 +3,11 @@
 require("db_user.php");
 
 $title = $_GET['title'];
-$post_query = "SELECT post_cont FROM post WHERE post_id = " .  $_GET['id'];
-$result = $db->query($post_query);
+
+$stmt = $db->prepare("SELECT post_cont FROM post WHERE post_id = ?");
+$stmt->bind_param("i",$_GET['id']);
+$stmt->execute();
+$result = $stmt->get_result();
 
 try{
     if(!$row = $result->fetch_assoc()){

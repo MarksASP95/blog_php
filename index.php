@@ -1,5 +1,5 @@
 <?php 
-    require("db_user.php"); //CONNECT TO DATABASE
+    require("db_user.php");
     $select_posts_query = "SELECT * FROM post ORDER BY post_id DESC";
     $result = $db->query($select_posts_query);
     $posts_list = "";
