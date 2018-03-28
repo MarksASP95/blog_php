@@ -1,6 +1,9 @@
 <?php 
 
 require("db_user.php");
+require("bbc_parser/nbbc.php");
+
+$bb = new BBCode();
 
 $title = $_GET['title'];
 
@@ -41,8 +44,8 @@ catch(Exception $e){
 
     <section id="post">
 
-        <h2 class="post-title"><?php echo $title ?></h2>
-        <p id="post-content"><?php echo $content ?></p>
+        <h2 class="post-title"><?php echo $title; ?></h2>
+        <p id="post-content"><?php error_reporting(0); echo $bb->Parse(strip_tags($content)); ?></p>
 
     
     </section>

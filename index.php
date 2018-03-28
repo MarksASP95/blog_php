@@ -5,7 +5,8 @@
     $posts_list = "";
     
     while($row = $result -> fetch_assoc()){
-        $tags = explode(",",$row['tags']);
+        $tags = str_replace(" ", "", $row['tags']);
+        $tags = explode(",",$tags);
         $tag_list = "";
         foreach($tags as $tag){
             $tag_list .= "#" . $tag . " ";

@@ -1,10 +1,12 @@
 <?php
-    error_reporting(0);     
+    error_reporting(0);
+      
     $db = new mysqli("localhost",$_POST['username'],$_POST['password'],"blog");
     if($db->connect_errno){
-        echo (String) "Error";
+        echo "Error";
     }
     else{
-        echo (String) "Success";
+        session_start();
+        $_SESSION['username'] = $_POST['username']; 
     }
 ?>

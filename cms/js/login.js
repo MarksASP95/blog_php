@@ -20,9 +20,14 @@ $(document).ready(function(){
             dataType:"text",
             success: function(response){
                 if(response === "Error"){
+                    console.log("Error");
                     $('[name=password]').val('');
                     $("#incorrect").fadeIn();
                     setTimeout(() => $("#incorrect").fadeOut(),3000);
+                }
+                else{
+                    console.log("redirecting");
+                    document.location = "cms.php";
                 }
             }
         });
