@@ -38,6 +38,17 @@ catch(Exception $e){
 </head>
 <body>
 
+    <style>
+        .bbcode_code_body{
+            font-family:'Consolas';
+            background-color: #282b2e;
+            border-left: 4px solid red;
+            overflow:auto;
+            color: #ffffff;
+            padding-left: 5px;
+        }
+    </style>
+
     <header>
         <h1><a href="index.php">Marco Suárez</a></h1>
     </header>
@@ -47,7 +58,6 @@ catch(Exception $e){
         <h2 class="post-title"><?php echo $title; ?></h2>
         <p id="post-content"><?php error_reporting(0); echo $bb->Parse(strip_tags($content)); ?></p>
 
-    
     </section>
 
 </body>

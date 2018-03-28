@@ -1,7 +1,10 @@
 <?php 
     require("db_user.php");
-    $select_posts_query = "SELECT * FROM post ORDER BY post_id DESC";
-    $result = $db->query($select_posts_query);
+    $stmt = $db->prepare("SELECT * FROM post WHERE post_title LIKE ? OR tags LIKE ? ORDER BY post_id DESC");
+    $param = "%" . $_GET['post_name'] . "%";
+    $stmt->bind_param("ss", $param,$param);
+    $stmt->execute();
+    $result = $stmt->get_result();
     $posts_list = "";
     
     while($row = $result -> fetch_assoc()){
@@ -44,15 +47,15 @@
 
         <section  id="posts">
 
-            <h2 class="page-subtitle">New Posts</h2>
+            <h2 class="page-subtitle">Search results</h2>
 
-            <?php if(!$posts_list == ""){echo $posts_list;}else{echo "<h3>No posts to show</h3>";} ?>
+            <?php if(!$posts_list == ""){echo $posts_list;}else{echo "<h3>No posts found</h3>";} ?>
         
         </section>
 
         <aside>
             <h2 class="page-subtitle">Search posts...</h2>
-            <form action="search_post.php" method="get" id="search-form" onsubmit="checkForm()">
+            <form action="search_post.php">
                 <input type="text" name="post_name" placeholder="Post name or tags..." required>
                 <input type="submit" value="Search">
             </form>

@@ -667,7 +667,7 @@ var $default_tag_rules = Array(
 ),
 'code' => Array(
 'mode' => BBCODE_MODE_ENHANCED,
-'template' => "\n<div class=\"bbcode_code\">\n<div class=\"bbcode_code_head\">Code:</div>\n<div class=\"bbcode_code_body\" style=\"white-space:pre\">{\$_content/v}</div>\n</div>\n",
+'template' => "\n<div class=\"bbcode_code\">\n<div class=\"bbcode_code_body\" style=\"white-space:pre\">{\$_content/v}</div>\n</div>\n",
 'class' => 'code',
 'allow_in' => Array('listitem', 'block', 'columns'),
 'content' => BBCODE_VERBATIM,
